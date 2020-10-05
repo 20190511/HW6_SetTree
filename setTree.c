@@ -50,16 +50,23 @@ void treeUnion(TreeSet* firstTree, TreeSet* secondTree)
 
 TreeSet* question1_1()
 {
+    //세팅과정
+    printf(" +++++++++ question1: (a) +++++++++\n");
     TreeSet* question1[3];
     question1[0] = makeSet('a');
     question1[1] = makeSet('b');
     treeUnion(question1[1], question1[0]);
     question1[2] = makeSet('c');
+
+    //문제의 본론
     treeUnion(question1[2], question1[1]);
+    printf("\n");
     return question1[0];
 }
 TreeSet* question1_2()
 {
+    //세팅과정
+    printf(" +++++++++ question1 : (b) +++++++++\n");
     TreeSet* question2[6];
     question2[0] = makeSet('d');
     question2[1] = makeSet('e');
@@ -71,8 +78,10 @@ TreeSet* question1_2()
     treeUnion(question2[2], question2[4]);
     question2[5] = makeSet('i');
     treeUnion(question2[2], question2[5]);
-
+    
+    //문제의 본론
     treeUnion(question2[0], question2[3]);
+    printf("\n");
     return question2[0];
 }
 
@@ -81,7 +90,9 @@ void question_final()
     TreeSet* finalTree[2];
     finalTree[0] = question1_1();
     finalTree[1] = question1_2();
+    printf(" +++++++++ question1 : whole Union +++++++++\n");
     treeUnion(finalTree[0], finalTree[1]);
+    printf("\n");
 }
 
 int main(void)
