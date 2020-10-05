@@ -48,20 +48,44 @@ void treeUnion(TreeSet* firstTree, TreeSet* secondTree)
     }
 }
 
-void question1_1()
+TreeSet* question1_1()
 {
-    TreeSet* firstTree = makeSet('a');
-    TreeSet* secondTree = makeSet('b');
-    treeUnion(firstTree, secondTree);
-    TreeSet* thirdTree = makeSet('c');
-    treeUnion(firstTree, thirdTree);
+    TreeSet* question1[3];
+    question1[0] = makeSet('a');
+    question1[1] = makeSet('b');
+    treeUnion(question1[1], question1[0]);
+    question1[2] = makeSet('c');
+    treeUnion(question1[2], question1[1]);
+    return question1[0];
+}
+TreeSet* question1_2()
+{
+    TreeSet* question2[6];
+    question2[0] = makeSet('d');
+    question2[1] = makeSet('e');
+    treeUnion(question2[1], question2[0]);
+    question2[2] = makeSet('f');
+    question2[3] = makeSet('g');
+    treeUnion(question2[3], question2[2]);
+    question2[4] = makeSet('h');
+    treeUnion(question2[2], question2[4]);
+    question2[5] = makeSet('i');
+    treeUnion(question2[2], question2[5]);
+
+    treeUnion(question2[0], question2[3]);
+    return question2[0];
 }
 
+void question_final()
+{
+    TreeSet* finalTree[2];
+    finalTree[0] = question1_1();
+    finalTree[1] = question1_2();
+    treeUnion(finalTree[0], finalTree[1]);
+}
 
 int main(void)
 {
-    question1_1();
-
-
+    question_final();
     return 0;
 }
